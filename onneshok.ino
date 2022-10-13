@@ -3,17 +3,17 @@ int L_IS = 9;
 int R_EN = 7;
 int L_EN = 6;
 
-//motor1, motor3 and motor5
+//motor1, motor3 
 int RPWM_1 = 3;
 int LPWM_1 = 5;
 
-//motor2, motor4 and motor 6
+//motor2, motor4 
 int RPWM_2 = 10;
 int LPWM_2 = 11;
 
 
-int speed1 = 200;
-int speed2 = 200;
+int speed1 = 100;
+int speed2 = 100;
 
 
 
@@ -70,34 +70,35 @@ void loop(){
   
 
 
-void forward() {
-  analogWrite(RPWM_1, speed1);
+void forward() { //done
   analogWrite(RPWM_2, speed1);
-  analogWrite(LPWM_2, 0);
-  analogWrite(LPWM_2, 0);
-}
-
-void backward() {
   analogWrite(LPWM_1, speed1);
-  analogWrite(LPWM_2, speed1);
+  analogWrite(LPWM_2, 0);
   analogWrite(RPWM_1, 0);
-  analogWrite(RPWM_2, 0);
+  
 }
 
-
-void right() {
+void backward() { ///done
   analogWrite(RPWM_1, speed2);
   analogWrite(RPWM_2, 0);
   analogWrite(LPWM_2, speed2);
   analogWrite(LPWM_1, 0);
+}
+
+
+void right() { //done
+  analogWrite(RPWM_1, 0);
+  analogWrite(RPWM_2, 0);
+  analogWrite(LPWM_2, speed1);
+  analogWrite(LPWM_1, speed1);
   
 }
 
-void left() {
+void left() { //done
   
-  analogWrite(RPWM_2, speed2);
-  analogWrite(RPWM_1, 0);
-  analogWrite(LPWM_1, speed2);
+  analogWrite(RPWM_1, speed1);
+  analogWrite(RPWM_2, speed1);
+  analogWrite(LPWM_2, 0);
   analogWrite(LPWM_2, 0);
 }
 
